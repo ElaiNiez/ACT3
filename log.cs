@@ -15,7 +15,7 @@ namespace ACT2
 {
     public partial class log : Form
     {
-        string filePath = @"C:\Users\ACT-STUDENT\Desktop\act (3)\elai.xlsx";
+        excelpath path = new excelpath();
 
         public log()
         {
@@ -27,7 +27,7 @@ namespace ACT2
         public void InsertLogs(string user, string message)
         {
             Workbook book = new Workbook();
-            book.LoadFromFile(filePath);
+            book.LoadFromFile(path.path);
             Worksheet shesh = book.Worksheets[1];
 
             int lastRow = shesh.LastRow + 1; // Get the next empty row
@@ -36,7 +36,7 @@ namespace ACT2
             shesh.Range[lastRow, 3].Value = DateTime.Now.ToString("MM/dd/yyyy");
             shesh.Range[lastRow, 4].Value = DateTime.Now.ToString("hh:mm:ss tt");
 
-            book.SaveToFile(filePath, ExcelVersion.Version2016);
+            book.SaveToFile(path.path, ExcelVersion.Version2016);
 
             LoadExcelFile();
         }
@@ -44,7 +44,7 @@ namespace ACT2
         public void LoadExcelFile()
         {
             Workbook book = new Workbook();
-            book.LoadFromFile(filePath);
+            book.LoadFromFile(path.path);
             Worksheet shesh = book.Worksheets[1];
 
             DataTable dt = shesh.ExportDataTable(shesh.FirstRow, shesh.FirstColumn, shesh.LastRow, shesh.LastColumn, true);

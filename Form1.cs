@@ -11,8 +11,8 @@ namespace ACT2
     public partial class Form1 : Form
     {
         active f2 = new active();
-        string filePath = @"C:\Users\ACT-STUDENT\Desktop\act (3)\elai.xlsx";
-        string picturePath = @"C:\Users\elaiza mae niez\Downloads\EVEDRIVE_AC2 (10)\EVEDRIVE_AC2 (10)\EVEDRIVE_AC2 (10)\EVEDRIVE_AC2";
+       excelpath path = new excelpath();
+       
         public Form1()
         {
             InitializeComponent();
@@ -83,7 +83,7 @@ namespace ACT2
             string saying = txtStatus.Text.Trim();
 
             Workbook book = new Workbook();
-            book.LoadFromFile(filePath);
+            book.LoadFromFile(path.path);
             Worksheet sheet = book.Worksheets[0];
 
             int updateRow = id + 2; // because 1st row is headers
@@ -102,7 +102,7 @@ namespace ACT2
             sheet.Range[updateRow, 12].Value = password;
             sheet.Range[updateRow, 14].Value = lblPathPic.Text;
 
-            book.SaveToFile(filePath, ExcelVersion.Version2016);
+            book.SaveToFile(path.path, ExcelVersion.Version2016);
             f2.LoadExcelFile();
             string errorMsg = checkEmpty();
             if (!string.IsNullOrEmpty(errorMsg))

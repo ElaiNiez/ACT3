@@ -9,7 +9,7 @@ namespace ACT2
 {
     public partial class inactive : Form
     {
-        string filePath = @"C:\Users\ACT-STUDENT\Desktop\act (3)\elai.xlsx";
+       excelpath path = new excelpath();
 
         public inactive()
         {
@@ -30,7 +30,7 @@ namespace ACT2
                 dgv1.EnableHeadersVisualStyles = false;
 
                 Workbook book = new Workbook();
-                book.LoadFromFile(filePath);
+                book.LoadFromFile(path.path);
                 Worksheet sheet = book.Worksheets[0];
 
                 DataTable dt = sheet.ExportDataTable();
@@ -106,12 +106,12 @@ namespace ACT2
             try
             {
                 Workbook book = new Workbook();
-                book.LoadFromFile(filePath);
+                book.LoadFromFile(path.path);
                 Worksheet sheet = book.Worksheets[0];
 
                 int rowToDelete = dgv1.CurrentCell.RowIndex + 2; // Adjust for header
                 sheet.DeleteRow(rowToDelete);
-                book.SaveToFile(filePath, ExcelVersion.Version2016);
+                book.SaveToFile(path.path, ExcelVersion.Version2016);
 
                 LoadExcelFile(); // Refresh grid
             }

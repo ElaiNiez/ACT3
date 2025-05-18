@@ -14,8 +14,11 @@ namespace ACT2
 {
     public partial class dashboard: Form
     {
+
+        excelpath path = new excelpath();  
+
         public string userName;
-        string filePath = @"C:\Users\ACT-STUDENT\Desktop\act (3)\elai.xlsx";
+    
 
 
         public dashboard() // Constructor to receive the name
@@ -47,7 +50,7 @@ namespace ACT2
         public int Showcount(int c, string v)
         {
             Workbook book = new Workbook();
-            book.LoadFromFile(filePath);
+            book.LoadFromFile(path.path);
             Worksheet shesh = book.Worksheets[0];
             int row = shesh.Rows.Length;
             int counter = 0;

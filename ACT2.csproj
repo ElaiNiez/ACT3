@@ -113,6 +113,7 @@
     <Compile Include="active.Designer.cs">
       <DependentUpon>active.cs</DependentUpon>
     </Compile>
+    <Compile Include="excelpath.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

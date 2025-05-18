@@ -49,19 +49,23 @@ namespace ACT2
             this.dgv1.BackgroundColor = System.Drawing.Color.PaleVioletRed;
             this.dgv1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1.Location = new System.Drawing.Point(68, 94);
+            this.dgv1.Location = new System.Drawing.Point(102, 145);
+            this.dgv1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv1.Name = "dgv1";
-            this.dgv1.Size = new System.Drawing.Size(855, 309);
+            this.dgv1.RowHeadersWidth = 62;
+            this.dgv1.Size = new System.Drawing.Size(1282, 475);
             this.dgv1.TabIndex = 0;
             this.dgv1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellClick);
+            this.dgv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentClick);
             this.dgv1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv1_CellMouseDoubleClick);
             // 
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.MistyRose;
-            this.txtSearch.Location = new System.Drawing.Point(475, 54);
+            this.txtSearch.Location = new System.Drawing.Point(712, 83);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(310, 20);
+            this.txtSearch.Size = new System.Drawing.Size(463, 26);
             this.txtSearch.TabIndex = 3;
             // 
             // btnSearch
@@ -71,9 +75,10 @@ namespace ACT2
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Rockwell Extra Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(776, 51);
+            this.btnSearch.Location = new System.Drawing.Point(1164, 78);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(133, 23);
+            this.btnSearch.Size = new System.Drawing.Size(200, 35);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "SEARCH";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -84,8 +89,9 @@ namespace ACT2
             this.pnlActive.Controls.Add(this.pnlInactive);
             this.pnlActive.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlActive.Location = new System.Drawing.Point(0, 0);
+            this.pnlActive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlActive.Name = "pnlActive";
-            this.pnlActive.Size = new System.Drawing.Size(984, 561);
+            this.pnlActive.Size = new System.Drawing.Size(1476, 863);
             this.pnlActive.TabIndex = 5;
             // 
             // pnlInactive
@@ -99,16 +105,18 @@ namespace ACT2
             this.pnlInactive.Controls.Add(this.dgv1);
             this.pnlInactive.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlInactive.Location = new System.Drawing.Point(0, 0);
+            this.pnlInactive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlInactive.Name = "pnlInactive";
-            this.pnlInactive.Size = new System.Drawing.Size(984, 561);
+            this.pnlInactive.Size = new System.Drawing.Size(1476, 863);
             this.pnlInactive.TabIndex = 6;
             // 
             // pcbExit
             // 
             this.pcbExit.Image = global::ACT2.Properties.Resources.reject;
-            this.pcbExit.Location = new System.Drawing.Point(951, 3);
+            this.pcbExit.Location = new System.Drawing.Point(1426, 5);
+            this.pcbExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pcbExit.Name = "pcbExit";
-            this.pcbExit.Size = new System.Drawing.Size(30, 30);
+            this.pcbExit.Size = new System.Drawing.Size(45, 46);
             this.pcbExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbExit.TabIndex = 13;
             this.pcbExit.TabStop = false;
@@ -121,10 +129,10 @@ namespace ACT2
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Firebrick;
-            this.btnDelete.Location = new System.Drawing.Point(568, 446);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnDelete.Location = new System.Drawing.Point(852, 686);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(166, 47);
+            this.btnDelete.Size = new System.Drawing.Size(249, 72);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -137,10 +145,10 @@ namespace ACT2
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Firebrick;
-            this.btnAdd.Location = new System.Drawing.Point(349, 446);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAdd.Location = new System.Drawing.Point(524, 686);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(166, 47);
+            this.btnAdd.Size = new System.Drawing.Size(249, 72);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add Student";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -148,12 +156,14 @@ namespace ACT2
             // 
             // active
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1476, 863);
             this.Controls.Add(this.pnlActive);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "active";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "f2";
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.pnlActive.ResumeLayout(false);

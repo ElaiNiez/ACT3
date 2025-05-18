@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace ACT2
@@ -10,7 +11,7 @@ namespace ACT2
     public partial class active : Form
     {
         log logg = new log();
-        string filePath = @"C:\Users\ACT-STUDENT\Desktop\act (3)\elai.xlsx";
+        excelpath path = new excelpath();
 
         public active()
         {
@@ -35,7 +36,7 @@ namespace ACT2
                 dgv1.EnableHeadersVisualStyles = false;
 
                 Workbook book = new Workbook();
-                book.LoadFromFile(filePath);
+                book.LoadFromFile(path.path);
                 Worksheet sheet = book.Worksheets[0];
 
                 DataTable dt = sheet.ExportDataTable();
@@ -142,40 +143,65 @@ namespace ACT2
         {
             try
             {
-
-                Workbook book = new Workbook();
-                Worksheet sheet = book.Worksheets[0]; ;
-                DataTable dt = sheet.ExportDataTable();
-                DataView dv = new DataView(dt);
-                log log = new log();
-                dashboard ds = new dashboard();
-                log.InsertLogs(ds.Name, $" delete button");
-                LoadExcelFile();
-
-                DialogResult result = MessageBox.Show("Are you sure you want to change the status of this student?", "Deactivate Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (result == DialogResult.Yes)
+                if(dgv1.SelectedRows.Count == 0)
                 {
-                    
-                    for (int i = 2; i <= sheet.LastRow; i++)
-                    {
-                        if (sheet.Range[i, 2].Value == uniqueID)
-                        {
-                            string currentStatus = sheet.Range[i, 14].Value;
-                            
-                                sheet.Range[i, 14].Value = "0";                          
-                            break;
-                        }
-                        
-                    }
-                    book.SaveToFile(filePath, ExcelVersion.Version2016);
-
+                    MessageBox.Show("Please select a student to delete.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
+                DataGridViewRow selectedrow = dgv1.SelectedRows[0];
+                string username = selectedrow.Cells[11].Value.ToString();
+
+                if(string.IsNullOrEmpty(username) )
+                {
+                    MessageBox.Show("Unable to identify the selected student.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DialogResult result = MessageBox.Show($"Are you sure you want '{username}' as inactive?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    return;
+                }
+
+                Workbook book = new Workbook();
+                book.LoadFromFile(path.path);
+                Worksheet sheet = book.Worksheets[0];
+
+                bool found = false;
+                for (int row = 2; row<=sheet.LastRow; row++)
+                {
+                    string currentusername = sheet.Range[row, "sheetcolumnsausername"].Value.ToString();
+
+                    if(currentusername == username)
+                    {
+                        sheet.Range[row, "statuscolumnsasheet"].Value = "0";
+                        found = true;
+                    }
+                }
+
+                book.SaveToFile(path.path, ExcelVersion.Version2016);
+
+                int r = dgv1.CurrentCell.RowIndex + 2;
+                //para ni para sa mylogs here na  line//
+                mylogs.insertLogs();
+               //
+
+               if(found)
+                {
+                    dgv1.Rows.Remove(selectedrow);
+
+                }
+                else
+                {
+                    MessageBox.Show($"Could not find student with identifier '{username}' in the Excel Sheet.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+
             }
-            catch (Exception ex)
+            catch(Exception ex) 
             {
-                MessageBox.Show("Error deleting row: " + ex.Message);
+             MessageBox.Show($"An error occured while marking the student inactive: {ex.Message}");
             }
         }
 
@@ -194,6 +220,11 @@ namespace ACT2
         private void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             uniqueID = dgv1.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -41,9 +41,10 @@
             // pcbExit
             // 
             this.pcbExit.Image = global::ACT2.Properties.Resources.reject;
-            this.pcbExit.Location = new System.Drawing.Point(947, 7);
+            this.pcbExit.Location = new System.Drawing.Point(1420, 11);
+            this.pcbExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pcbExit.Name = "pcbExit";
-            this.pcbExit.Size = new System.Drawing.Size(30, 30);
+            this.pcbExit.Size = new System.Drawing.Size(45, 46);
             this.pcbExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbExit.TabIndex = 19;
             this.pcbExit.TabStop = false;
@@ -56,10 +57,10 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Firebrick;
-            this.btnDelete.Location = new System.Drawing.Point(564, 450);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnDelete.Location = new System.Drawing.Point(846, 692);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(166, 47);
+            this.btnDelete.Size = new System.Drawing.Size(249, 72);
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -72,10 +73,10 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Firebrick;
-            this.btnAdd.Location = new System.Drawing.Point(345, 450);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAdd.Location = new System.Drawing.Point(518, 692);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(166, 47);
+            this.btnAdd.Size = new System.Drawing.Size(249, 72);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Add Student";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -83,9 +84,10 @@
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.MistyRose;
-            this.txtSearch.Location = new System.Drawing.Point(471, 58);
+            this.txtSearch.Location = new System.Drawing.Point(706, 89);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(310, 20);
+            this.txtSearch.Size = new System.Drawing.Size(463, 26);
             this.txtSearch.TabIndex = 15;
             // 
             // btnSearch
@@ -96,9 +98,10 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSearch.Location = new System.Drawing.Point(787, 55);
+            this.btnSearch.Location = new System.Drawing.Point(1180, 85);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(133, 37);
+            this.btnSearch.Size = new System.Drawing.Size(200, 57);
             this.btnSearch.TabIndex = 16;
             this.btnSearch.Text = "SEARCH";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -108,19 +111,21 @@
             this.dgv1.BackgroundColor = System.Drawing.Color.PaleVioletRed;
             this.dgv1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv1.Location = new System.Drawing.Point(64, 98);
+            this.dgv1.Location = new System.Drawing.Point(96, 151);
+            this.dgv1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv1.Name = "dgv1";
-            this.dgv1.Size = new System.Drawing.Size(855, 309);
+            this.dgv1.RowHeadersWidth = 62;
+            this.dgv1.Size = new System.Drawing.Size(1282, 475);
             this.dgv1.TabIndex = 14;
             this.dgv1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv1_CellMouseDoubleClick);
             // 
             // inactive
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1476, 863);
             this.Controls.Add(this.pcbExit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -128,7 +133,9 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgv1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "inactive";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "inactive";
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();

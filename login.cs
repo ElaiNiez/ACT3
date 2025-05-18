@@ -15,9 +15,10 @@ namespace ACT2
 {
     public partial class login : Form
     {
+        excelpath path= new excelpath();
         log log = new log();
         Color defaultColor;
-        string filePath = @"C:\Users\ACT-STUDENT\Desktop\act (3)\elai.xlsx";
+        
         dashboard ds = new dashboard();
 
         public login()
@@ -33,7 +34,7 @@ namespace ACT2
         {
             
             Workbook book = new Workbook();
-            book.LoadFromFile(filePath);
+            book.LoadFromFile(path.path);
             Worksheet shesh = book.Worksheets[0];
             int row = shesh.Rows.Length;
 
@@ -44,7 +45,7 @@ namespace ACT2
                 if (shesh.Range[i, 11].Value == txtUsername.Text && shesh.Range[i, 12].Value == txtPassword.Text)
                 {
                     
-                    ds.pcbProfile.Image = Image.FromFile(@shesh.Range[i, 14].Value.ToString());
+                    ds.pcbProfile.Image = Image.FromFile(shesh.Range[i, 14].Value.ToString());
                     
                     log.InsertLogs(shesh.Range[i,1].Value , " logged in.");
                     ds.lblUsername.Text = shesh.Range[i, 1].Value.ToString();
@@ -60,6 +61,7 @@ namespace ACT2
             if (isLoggedIn)
             {
                 ds.Show();
+                this.Hide();
                 txtPassword.Text = "";
                 txtUsername.Text = "";
             }
